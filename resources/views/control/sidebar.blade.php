@@ -50,6 +50,15 @@
             </a>
         </li>
 
+        <li class="nav-item">
+            <a href="{{ route('eventRead') }}" class="nav-link {{ request()->is('render*') ? 'active' : '' }}">
+                <i class="nav-icon fas fa-calendar-days"></i>
+                <p>
+                    Calendar
+                </p>
+            </a>
+        </li>
+
         @if(Auth::user()->role=='Administrator')
         <li class="nav-item">
             <a href="{{ route('optiontaskRead') }}" class="nav-link {{ request()->is('option*') ? 'active' : '' }}">

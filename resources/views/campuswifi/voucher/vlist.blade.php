@@ -27,7 +27,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6">
-                                    @if(Auth::user()->role == 'Administrator')
+                                    @if(Auth::user()->role == 'Administrator' || Auth::user()->role == 'MIS Officer')
                                         <form action="{{ route('process') }}" class="form-horizontal" method="POST" enctype="multipart/form-data">
                                     @else
                                         <form class="form-horizontal" method="POST" enctype="multipart/form-data">
@@ -35,15 +35,15 @@
                                             @csrf
                                             <div class="row">
                                                 <div class="col-md-8">
-                                                    @if(Auth::user()->role == 'Administrator')
-                                                        <input type="file" name="csv_file" class="form-control form-control-md" required="">
+                                                    @if(Auth::user()->role == 'Administrator' || Auth::user()->role == 'MIS Officer')
+                                                        <input type="file" name="csv_file" class="form-control form-control-md" required="" accept=".csv">
                                                     @else
                                                         <input type="file" name="csv_file" class="form-control form-control-md" disabled="">
                                                     @endif
                                                 </div>
 
                                                 <div class="col-md-4">
-                                                    @if(Auth::user()->role == 'Administrator')
+                                                    @if(Auth::user()->role == 'Administrator' || Auth::user()->role == 'MIS Officer')
                                                         <button type="submit" class="btn btn-info btn-md">Upload CSV</button>
                                                     @else
                                                         <button type="button" class="btn btn-info btn-md" disabled>Upload CSV</button>

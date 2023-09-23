@@ -8,6 +8,7 @@ use App\Http\Controllers\StudentlistController;
 use App\Http\Controllers\VoucherController;
 use App\Http\Controllers\AccomplishmentController;
 use App\Http\Controllers\OptionTaskController;
+use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\GenerateReportController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
@@ -58,6 +59,14 @@ Route::group(['middleware'=>['login_auth']],function(){
     Route::get('/option/taskList/edit/{id}', [OptionTaskController::class,'optiontaskEdit'])->name('optiontaskEdit');
     Route::post('/option/taskList/update', [OptionTaskController::class,'optiontaskUpdate'])->name('optiontaskUpdate');
     Route::get('/option/taskList/delete{id}', [OptionTaskController::class,'optiontaskDelete'])->name('optiontaskDelete');
+
+    Route::get('/render/events', [CalendarController::class,'eventRead'])->name('eventRead');
+    Route::get('/render/events/show', [CalendarController::class,'eventShow'])->name('eventShow');
+    Route::post('/render/events/add', [CalendarController::class,'eventCreate'])->name('eventCreate');
+    Route::get('/render/events/edit/{id}', [CalendarController::class,'eventEdit'])->name('eventEdit');
+    Route::post('/render/events/update', [CalendarController::class,'eventUpdate'])->name('eventUpdate');
+    Route::get('/render/events/delete{id}', [CalendarController::class,'eventDelete'])->name('eventDelete');
+    
 
     Route::get('/reports/option', [GenerateReportController::class,'genoptionRead'])->name('genoptionRead');
     Route::get('/reports/generate', [GenerateReportController::class,'generateReports'])->name('generateReports');

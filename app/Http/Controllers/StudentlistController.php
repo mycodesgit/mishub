@@ -13,13 +13,22 @@ use App\Models\Enrolled;
 
 class StudentlistController extends Controller
 {
+    // public function studentRead() {
+    //     $student = Student::join('voucher', 'students.vc_id', '=', 'voucher.id')
+    //                         ->join('studentslist', 'students.stud_id', '=', 'studentslist.stud_id')
+    //                         ->select('students.*', 'students.id as s_id', 'voucher.voucher_code', 'studentslist.*')
+    //                         ->get();
+    //     return view('campuswifi.stud.list', compact('student'));
+    // }
+
     public function studentRead() {
-        $student = Student::join('voucher', 'students.vc_id', '=', 'voucher.id')
-                            ->join('studentslist', 'students.stud_id', '=', 'studentslist.stud_id')
-                            ->select('students.*', 'students.id as s_id', 'voucher.voucher_code', 'studentslist.*')
-                            ->get();
+        $student = Student::leftJoin('voucher', 'students.vc_id', '=', 'voucher.id')
+                        ->leftJoin('studentslist', 'students.stud_id', '=', 'studentslist.stud_id')
+                        ->select('students.*', 'students.id as s_id', 'voucher.voucher_code', 'studentslist.*')
+                        ->get();
         return view('campuswifi.stud.list', compact('student'));
     }
+
 
     public function studentEdit($id) {
         $student = Student::findOrFail($id);

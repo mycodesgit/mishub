@@ -25,6 +25,14 @@ $(function () {
         "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
 
     }).buttons().container().appendTo('#example3_wrapper .col-md-6:eq(0)');
+
+    $("#exampleEvent").DataTable({
+        "responsive": false,
+        "lengthChange": false, 
+        "autoWidth": false,
+
+    }).buttons().container().appendTo('#exampleEvent_wrapper .col-md-4:eq(0)');
+
     $('.select2').select2()
 
     //Initialize Select2 Elements

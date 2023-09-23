@@ -25,7 +25,7 @@
                     <div class="small-box bg-info">
                         <div class="inner">
                             <h3>{{ $stud }}</h3>
-                            <p>Total Students Register in Campus Wifi</p>
+                            <p>Students Registered</p>
                         </div>
                         <div class="icon">
                             <i class="fa fa-users"></i>
