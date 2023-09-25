@@ -59,17 +59,6 @@
             </a>
         </li>
 
-        @if(Auth::user()->role=='Administrator')
-        <li class="nav-item">
-            <a href="{{ route('optiontaskRead') }}" class="nav-link {{ request()->is('option*') ? 'active' : '' }}">
-                <i class="nav-icon fas fa-bars"></i>
-                <p>
-                    Task Option
-                </p>
-            </a>
-        </li>
-        @endif
-
         <li class="nav-header" style="color: gray">Reports</li>
         <li class="nav-item">
             <a href="{{ route('genoptionRead') }}" class="nav-link {{ request()->is('reports*') ? 'active' : '' }}">
@@ -81,6 +70,17 @@
         </li>
 
         @if(Auth::user()->role=='Administrator')
+        <li class="nav-header" style="color: gray">Configure</li>
+        <li class="nav-item">
+            <a href="{{ route('optiontaskRead') }}" class="nav-link {{ request()->is('option*') ? 'active' : '' }}">
+                <i class="nav-icon fas fa-bars"></i>
+                <p>
+                    Task Option
+                </p>
+            </a>
+        </li>
+
+        
         <li class="nav-header" style="color: gray">Users Management</li>
         <li class="nav-item">
             <a href="{{ route('userRead') }}" class="nav-link {{ request()->is('users*') ? 'active' : '' }}">

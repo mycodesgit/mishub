@@ -128,8 +128,6 @@
 
     @include('layouts.script')
 
-    <script></script>
-
     <script>
         @if(Session::has('error'))
             toastr.options = {
