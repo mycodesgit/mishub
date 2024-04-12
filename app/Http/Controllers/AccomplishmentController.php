@@ -20,6 +20,7 @@ class AccomplishmentController extends Controller
         $daily = Daily::join('users', 'accomplishment.user_id', '=', 'users.id')
                     ->select('accomplishment.*', 'accomplishment.id  as accom_id')
                     ->where('accomplishment.user_id', '=',  $userId)
+                    ->orderBy('accomplishment.created_at', 'ASC')
                     ->get();
         return view('accomplishment.dlist', compact('daily', 'option'));
     }

@@ -70,7 +70,7 @@
                                         <div class="form-row">
                                             <div class="col-md-12">
                                                 <label>Date:</label>
-                                                <input type="date" id="created_at" value="{{ now()->toDateString() }}" class="form-control" rows="4" name="created_at">
+                                                <input type="date" id="created_at" value="{{ now()->toDateString() }}" class="form-control"  name="created_at">
                                             </div>
                                         </div>
                                     </div>
@@ -167,6 +167,7 @@
                                         <tr>
                                             <th>Task</th>
                                             <th>Accomodation</th>
+                                            <th>Date</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
@@ -180,6 +181,7 @@
                                             <tr id="tr-{{ $data->id }}">
                                                 <td>{{ $data->task }}</td>
                                                 <td>{{ $data->no_accom }}</td>
+                                                <td>{{ date('M. j, Y', strtotime($data->created_at)) }}</td>
                                                 <td>
                                                     <a href="{{ route('dailyEdit', ['id' => $data->accom_id]) }}" class="btn btn-info btn-xs btn-edit">
                                                         <i class="fas fa-exclamation-circle"></i>

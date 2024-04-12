@@ -13,6 +13,8 @@ use App\Http\Controllers\GenerateReportController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 
+use App\Http\Controllers\MemoFileController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -70,6 +72,14 @@ Route::group(['middleware'=>['login_auth']],function(){
 
     Route::get('/reports/option', [GenerateReportController::class,'genoptionRead'])->name('genoptionRead');
     Route::get('/reports/generate', [GenerateReportController::class,'generateReports'])->name('generateReports');
+
+    // PresOffice
+    Route::get('/documents/file', [MemoFileController::class,'docufileRead'])->name('docufileRead');
+    Route::get('/documents/file/show', [MemoFileController::class,'docufileShow'])->name('docufileShow');
+    Route::post('/documents/file/add', [MemoFileController::class,'docufileCreate'])->name('docufileCreate');
+    Route::get('/documents/file/edit/{id}', [MemoFileController::class,'docufileEdit'])->name('docufileEdit');
+    Route::post('/documents/file/update', [MemoFileController::class,'docufileUpdate'])->name('docufileUpdate');
+    Route::get('/documents/file/delete{id}', [MemoFileController::class,'docufileDelete'])->name('docufileDelete');
 
     Route::get('/acccount/information',[ProfileController::class,'profileRead'])->name('profileRead');
     Route::post('/acccount/information/update',[ProfileController::class,'profileUpdate'])->name('profileUpdate');

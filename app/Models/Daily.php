@@ -17,6 +17,6 @@ class Daily extends Model
         'no_accom',
         'user_id',
         'remember_token',
-        'dateAdded',
+        'created_at',
     ];
 }
