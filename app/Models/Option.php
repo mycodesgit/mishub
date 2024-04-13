@@ -14,5 +14,6 @@ class Option extends Model
 
     protected $fillable = [
         'option_name',
+        'remember_token'
     ];
 }

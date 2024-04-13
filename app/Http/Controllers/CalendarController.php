@@ -12,7 +12,8 @@ use App\Models\Event;
 
 class CalendarController extends Controller
 {
-    public function eventRead() {
+    public function eventRead() 
+    {
         $userId = Auth::id();
         $event = Event::join('users', 'event.user_id', '=', 'users.id')
                     ->select('event.*', 'event.id  as event_id')
@@ -22,7 +23,8 @@ class CalendarController extends Controller
         return view('calendar.eventList', compact('event'));
     }
 
-    public function eventShow() {
+    public function eventShow() 
+    {
         $events = Event::all();
         $eventData = [];
 
@@ -36,7 +38,8 @@ class CalendarController extends Controller
         return response()->json($eventData);
     }
 
-    public function eventCreate(Request $request) {
+    public function eventCreate(Request $request) 
+    {
         $request->validate([
             'title' => 'required',
             'start' => 'required|date',
@@ -63,7 +66,8 @@ class CalendarController extends Controller
         return view('calendar.eventList', compact('event'));
     }
 
-    public function eventUpdate(Request $request) {
+    public function eventUpdate(Request $request) 
+    {
         $request->validate([
             'id' => 'required',
             'title' => 'required',
@@ -86,7 +90,8 @@ class CalendarController extends Controller
         }
     }
 
-    public function eventDelete($id){
+    public function eventDelete($id)
+    {
         $event = Event::find($id);
         $event->delete();
 

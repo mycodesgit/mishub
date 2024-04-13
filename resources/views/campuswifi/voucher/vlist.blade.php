@@ -23,7 +23,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="card card-gray card-outline">
+                    <div class="card">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6">
@@ -62,7 +62,7 @@
                 </div>
 
                 <div class="col-md-6">
-                    <div class="card card-gray card-outline">
+                    <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">
                                 <i class="fas fa-money-check"></i> Voucher Avialable
@@ -71,7 +71,7 @@
 
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table id="example1" class="table table-bordered table-hover">
+                                <table id="example1" class="table table-hover">
                                     <thead>
                                         <tr>
                                             <th>No</th>
@@ -100,7 +100,7 @@
                 </div>
 
                 <div class="col-md-6">
-                    <div class="card card-gray card-outline">
+                    <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">
                                 <i class="fas fa-money-check"></i> Voucher Used
@@ -109,7 +109,7 @@
 
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table id="example2" class="table table-bordered table-hover">
+                                <table id="example2" class="table table-hover">
                                     <thead>
                                         <tr>
                                             <th>No</th>

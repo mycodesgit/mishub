@@ -12,7 +12,8 @@ use App\Models\MemoFile;
 
 class MemoFileController extends Controller
 {
-    public function docufileRead() {
+    public function docufileRead() 
+    {
         return view('memofile.memoList');
     }
 }

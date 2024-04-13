@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Carbon\Carbon;
 
@@ -14,18 +15,34 @@ use App\Models\Option;
 
 class AccomplishmentController extends Controller
 {
-    public function dailyRead() {
+    public function dailyRead() 
+    {
         $userId = Auth::id();
         $option = Option::all();
-        $daily = Daily::join('users', 'accomplishment.user_id', '=', 'users.id')
-                    ->select('accomplishment.*', 'accomplishment.id  as accom_id')
-                    ->where('accomplishment.user_id', '=',  $userId)
-                    ->orderBy('accomplishment.created_at', 'ASC')
-                    ->get();
-        return view('accomplishment.dlist', compact('daily', 'option'));
+        
+        return view('accomplishment.dlist', compact('option'));
     }
 
-    public function dailyCreate(Request $request) {
+    public function getdailyRead() 
+    {
+        $userId = Auth::id();
+        $currentMonth = Carbon::now()->month;
+        $currentYear = Carbon::now()->year;
+
+        $data = Daily::join('users', 'accomplishment.user_id', '=', 'users.id')
+                    ->leftJoin('option_task', 'accomplishment.task', '=', 'option_task.option_name')
+                    ->select('accomplishment.*', 'accomplishment.id  as accom_id', 'option_task.*')
+                    ->where('accomplishment.user_id', '=',  $userId)
+                    ->where(DB::raw('MONTH(accomplishment.created_at)'), '=', $currentMonth)
+                    ->where(DB::raw('YEAR(accomplishment.created_at)'), '=', $currentYear)
+                    ->orderBy('accomplishment.created_at', 'ASC')
+                    ->get();
+
+        return response()->json(['data' => $data]);
+    }
+
+    public function dailyCreate(Request $request) 
+    {
         if ($request->isMethod('post')) {
             $request->validate([
                 'task' => 'required',
@@ -42,15 +59,15 @@ class AccomplishmentController extends Controller
                     'remember_token' => Str::random(60),
                     'created_at' => $request->input('created_at'),
                 ]);
-
-                return redirect()->route('dailyRead')->with('success', 'Accomplishment stored successfully!');
+                return response()->json(['success' => true, 'message' => 'Accomplishment stored successfully'], 200);
             } catch (\Exception $e) {
-                return redirect()->route('dailyRead')->with('error', 'Failed to store Accomplishment!');
+                return response()->json(['error' => true, 'message' => 'Failed to store Accomplishment!'], 404);
             }
         }
     }
     
-    public function dailyEdit($id) {
+    public function dailyEdit($id) 
+    {
         $option = Option::all();
         $daily = Daily::findOrFail($id);
 
@@ -59,7 +76,8 @@ class AccomplishmentController extends Controller
         return view('accomplishment.editDaily', compact('option', 'daily', 'selectedTask'));
     }
 
-    public function dailyUpdate(Request $request) {
+    public function dailyUpdate(Request $request) 
+    {
         $daily = Daily::find($request->id);
         
         $request->validate([
@@ -76,14 +94,16 @@ class AccomplishmentController extends Controller
                 'no_accom' => $request->input('no_accom'),
 
             ]);
-
-            return redirect()->route('dailyEdit', ['id' => $daily->id])->with('success', 'Updated Successfully');
+            return response()->json(['success' => true, 'message' => 'Update successfully'], 200);
+            // return redirect()->route('dailyEdit', ['id' => $daily->id])->with('success', 'Updated Successfully');
         } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Failed to update Accomplishment!');
+            // return redirect()->back()->with('error', 'Failed to update Accomplishment!');
+            return response()->json(['error' => true, 'message' => 'Failed to update Accomplishment!'], 404);
         }
     }
 
-    public function dailyDelete($id){
+    public function dailyDelete($id)
+    {
         $daily = Daily::find($id);
         $daily->delete();
 

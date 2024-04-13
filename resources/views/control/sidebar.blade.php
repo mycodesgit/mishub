@@ -71,6 +71,15 @@
                 </a>
             </li>
 
+            <li class="nav-item">
+                <a href="{{ route('workprogRead') }}" class="nav-link {{ request()->is('work*') ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-bars-progress"></i>
+                    <p>
+                        Work Progress
+                    </p>
+                </a>
+            </li>
+
             <li class="nav-header" style="color: gray">Reports</li>
             <li class="nav-item">
                 <a href="{{ route('genoptionRead') }}" class="nav-link {{ request()->is('reports*') ? 'active' : '' }}">

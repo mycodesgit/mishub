@@ -23,7 +23,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="card card-gray card-outline">
+                    <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">
                                 <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#modal-user">
@@ -35,11 +35,10 @@
                         {{-- @include('users/modal-user') --}}
 
                         <div class="card-body">
-                            <div class="table-responsive">
-                                <table id="example1" class="table table-bordered table-hover">
+                            <div class="">
+                                <table id="studEnTable" class="table table-hover">
                                     <thead>
                                         <tr>
-                                            <th>No</th>
                                             <th>Stud ID</th>
                                             <th>Name</th>
                                             <th>Voucher Code</th>
@@ -48,7 +47,7 @@
                                         </tr>
                                     </thead>
                                     <tbody id="tbody">
-                                        @php $no = 1; @endphp
+                                        {{-- @php $no = 1; @endphp
                                         @foreach($student as $data)
                                         <tr id="tr-{{ $data->id }}" class="">
                                             <td>{{ $no++ }}</td>
@@ -62,7 +61,7 @@
                                                 </a>
                                             </td>
                                         </tr>
-                                        @endforeach
+                                        @endforeach --}}
                                     </tbody>
                                 </table>
                             </div>
@@ -72,9 +71,46 @@
             </div>
         </div>
     </div>
-
-    {{-- @include('control.aside') --}}
-
 </div>
-        
+<div class="modal fade" id="editStudEnModal" role="dialog" aria-labelledby="editStudEnModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editFundModalLabel">Edit</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="editStudEnForm">
+                <div class="modal-body">
+                    <input type="hidden" name="id" id="editStudEnId">
+                    <div class="form-group">
+                        <label for="editstudID">Student ID No.</label>
+                        <input type="text" id="editstudID" name="mname" oninput="this.value = this.value.toUpperCase()" placeholder="Enter Student ID Number" class="form-control" readonly="">
+                    </div>
+                    <div class="form-group">
+                        <label for="editstudName">Name</label>
+                        <input type="text" id="editstudName" name="fullname" oninput="this.value = this.value.toUpperCase()" placeholder="Enter Full Name" class="form-control" readonly="">
+                    </div>
+                    <div class="form-group">
+                        <label for="passwordInput">Generate New Password</label>
+                        <input type="text" name="password" id="passwordInput" oninput="this.value = this.value.toUpperCase()" placeholder="Enter Password" class="form-control" readonly="">
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" id="generatePassword" class="btn btn-success">
+                        <i class="fas fa-key"></i> Generate New Password
+                    </button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    var studEnReadRoute = "{{ route('getstudentRead') }}";
+    var studEnUpdateRoute = "{{ route('studentUpdate', ['id' => ':id']) }}";
+</script>
+
 @endsection

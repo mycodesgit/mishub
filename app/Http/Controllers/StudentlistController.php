@@ -13,30 +13,30 @@ use App\Models\Enrolled;
 
 class StudentlistController extends Controller
 {
-    // public function studentRead() {
-    //     $student = Student::join('voucher', 'students.vc_id', '=', 'voucher.id')
-    //                         ->join('studentslist', 'students.stud_id', '=', 'studentslist.stud_id')
-    //                         ->select('students.*', 'students.id as s_id', 'voucher.voucher_code', 'studentslist.*')
-    //                         ->get();
-    //     return view('campuswifi.stud.list', compact('student'));
-    // }
+    public function studentRead() 
+    {
+        return view('campuswifi.stud.list');
+    }
 
-    public function studentRead() {
-        $student = Student::leftJoin('voucher', 'students.vc_id', '=', 'voucher.id')
+    public function getstudentRead() 
+    {
+        $data = Student::leftJoin('voucher', 'students.vc_id', '=', 'voucher.id')
                         ->leftJoin('studentslist', 'students.stud_id', '=', 'studentslist.stud_id')
                         ->select('students.*', 'students.id as s_id', 'voucher.voucher_code', 'studentslist.*')
                         ->get();
-        return view('campuswifi.stud.list', compact('student'));
+        return response()->json(['data' => $data]);
     }
 
 
-    public function studentEdit($id) {
+    public function studentEdit($id) 
+    {
         $student = Student::findOrFail($id);
 
         return view('campuswifi.stud.edit', compact('student'));
     }
 
-    public function studentUpdate(Request $request) {
+    public function studentUpdate(Request $request) 
+    {
         $student = Student::find($request->id);
         
         $request->validate([
@@ -50,10 +50,9 @@ class StudentlistController extends Controller
             $student->update([
                 'password' => Hash::make($request->input('password')),
             ]);
-
-            return redirect()->route('studentEdit', ['id' => $student->id])->with('success', 'Password Updated Successfully');
+            return response()->json(['success' => true, 'message' => 'Password Updated Successfully'], 200);
         } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Failed to update Password!');
+            return response()->json(['error' => true, 'message' => 'Failed to update Password!'], 404);
         }
     }
 }

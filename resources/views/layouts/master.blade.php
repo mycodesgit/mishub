@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{ asset('template/plugins/fontawesome-free-v6/css/all.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('template/dist/css/adminlte.css') }}">
+    <link rel="stylesheet" href="{{ asset('template/dist/css/custom.css') }}">
     <!-- Toastr -->
     <link rel="stylesheet" href="{{ asset('template/plugins/toastr/toastr.min.css') }}">
     <!-- SweetAlert2 -->
@@ -29,41 +30,6 @@
 
     <!-- Logo  -->
     <link rel="shortcut icon" type="" href="{{ asset('template/img/mislogoNoBG.png') }}">
-
-    <style>
-        .sidebar-dark-primary .nav-sidebar>.nav-item>.nav-link.active, .sidebar-light-primary .nav-sidebar>.nav-item>.nav-link.active{
-            background-color: #337ab7 !important ;
-            color: white;
-        }
-        [class*="sidebar-dark-"] .nav-treeview > .nav-item > .nav-link.active, 
-        [class*="sidebar-dark-"] .nav-treeview > .nav-item > .nav-link.active:hover, 
-        [class*="sidebar-dark-"] .nav-treeview > .nav-item > .nav-link.active:focus {
-            background-color: #337ab7 !important ;
-            color: #fff !important ;
-        }
-        .navbar-primary {
-            background-color: #337ab7 !important ;
-        }
-        .main-header navbar navbar-expand navbar-white navbar-light {
-            background-color: #337ab7 !important ;
-        }
-        .bg-selectEdit{
-            background-color: #dcfdeb !important ;
-            color: #000 !important;
-        }
-        /*.nav-item{
-            cursor: pointer !important;
-        }
-        .nav-link:hover{
-            background-color: none !important;
-        }
-        .nav-header{
-            color: #6c757d !important;
-        }*/
-        .sign-out {
-            color: #fff !important;
-        }
-    </style>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed text-sm">

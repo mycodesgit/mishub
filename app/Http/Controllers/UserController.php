@@ -14,7 +14,8 @@ use App\Models\Campus;
 
 class UserController extends Controller
 {
-    public function userRead() {
+    public function userRead() 
+    {
         $office = Office::all();
         $campus = Campus::all();
         $user = User::join('offices', 'users.off_id', '=', 'offices.id')
@@ -24,7 +25,8 @@ class UserController extends Controller
         return view("users.ulist", compact('user', 'office', 'campus'));
     }
 
-    public function userCreate(Request $request) {
+    public function userCreate(Request $request) 
+    {
 
         if ($request->isMethod('post')) {
             $request->validate([
@@ -67,7 +69,8 @@ class UserController extends Controller
         }
     }
 
-    public function userEdit($id) {
+    public function userEdit($id) 
+    {
         $campus = Campus::all();
         $office = Office::all();
         $selectedUser = User::find($id);
@@ -78,7 +81,8 @@ class UserController extends Controller
         return view('users.editUser', compact('campus', 'office', 'selectedUser', 'selectedOfficeId', 'selectedCampusId'));
     }
 
-    public function userUpdate(Request $request) {
+    public function userUpdate(Request $request) 
+    {
         $user = User::find($request->id);
         
         $request->validate([
@@ -118,7 +122,8 @@ class UserController extends Controller
         }
     }
 
-    public function userUpdatePassword(Request $request) {
+    public function userUpdatePassword(Request $request) 
+    {
         $user = User::find($request->id);
         
         $request->validate([
@@ -138,7 +143,8 @@ class UserController extends Controller
         }
     }
 
-    public function userDelete($id){
+    public function userDelete($id)
+    {
         $user = User::find($id);
         $user->delete();
 

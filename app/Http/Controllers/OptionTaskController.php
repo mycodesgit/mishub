@@ -11,12 +11,14 @@ use App\Models\Option;
 
 class OptionTaskController extends Controller
 {
-    public function optiontaskRead() {
+    public function optiontaskRead() 
+    {
         $option = Option::all();
         return view('optionTask.olist', compact('option'));
     }
 
-    public function optiontaskCreate(Request $request) {
+    public function optiontaskCreate(Request $request) 
+    {
         if ($request->isMethod('post')) {
             $request->validate([
                 'option_name' => 'required',
@@ -42,7 +44,8 @@ class OptionTaskController extends Controller
         }
     }
 
-    public function optiontaskEdit($id) {
+    public function optiontaskEdit($id) 
+    {
         $option = Option::all();
 
         $selectedOptionTask = Option::findOrFail($id);
@@ -50,7 +53,8 @@ class OptionTaskController extends Controller
         return view('optionTask.olist', compact('option', 'selectedOptionTask'));
     }
 
-    public function optiontaskUpdate(Request $request) {
+    public function optiontaskUpdate(Request $request) 
+    {
         $request->validate([
             'id' => 'required',
             'option_name' => 'required',
@@ -75,7 +79,8 @@ class OptionTaskController extends Controller
         }
     }
 
-    public function optiontaskDelete($id){
+    public function optiontaskDelete($id)
+    {
         $option = Option::find($id);
         $option->delete();
 

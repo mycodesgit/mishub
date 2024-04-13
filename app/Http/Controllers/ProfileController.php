@@ -15,7 +15,8 @@ use App\Models\Campus;
 
 class ProfileController extends Controller
 {
-    public function profileRead() {
+    public function profileRead() 
+    {
         $user = Auth::user(); 
         $office = Office::all();
         $campus = Campus::all();
@@ -23,7 +24,8 @@ class ProfileController extends Controller
         return view("profile.info", compact('office', 'campus'));
     }
 
-    public function profileUpdate(Request $request) {
+    public function profileUpdate(Request $request) 
+    {
         try {
             $request->validate([
                 'lname' => 'required|string|max:255',

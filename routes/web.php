@@ -9,6 +9,7 @@ use App\Http\Controllers\VoucherController;
 use App\Http\Controllers\AccomplishmentController;
 use App\Http\Controllers\OptionTaskController;
 use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\WorkProgressController;
 use App\Http\Controllers\GenerateReportController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
@@ -38,6 +39,7 @@ Route::group(['middleware'=>['login_auth']],function(){
     Route::get('/dashboard', [DashboardController::class,'dashboard'])->name('dashboard');
 
     Route::get('/campuswifi/students/reg',[StudentlistController::class,'studentRead'])->name('studentRead');
+    Route::get('/campuswifi/students/reg/ajax',[StudentlistController::class,'getstudentRead'])->name('getstudentRead');
     Route::get('/campuswifi/students/edit/{id}',[StudentlistController::class,'studentEdit'])->name('studentEdit');
     Route::post('/campuswifi/students/studupdatePass',[StudentlistController::class,'studentUpdate'])->name('studentUpdate');
     Route::get('/campuswifi/vouchers/code',[VoucherController::class,'voucherRead'])->name('voucherRead');
@@ -51,8 +53,9 @@ Route::group(['middleware'=>['login_auth']],function(){
     Route::get('/users/delete{id}', [UserController::class,'userDelete'])->name('userDelete');
 
     Route::get('/daily/accomplishment', [AccomplishmentController::class,'dailyRead'])->name('dailyRead');
+    Route::get('/daily/accomplishment/ajax', [AccomplishmentController::class,'getdailyRead'])->name('getdailyRead');
     Route::post('/daily/accomplishment/add', [AccomplishmentController::class,'dailyCreate'])->name('dailyCreate');
-    Route::get('/daily/accomplishment/edit/{id}', [AccomplishmentController::class,'dailyEdit'])->name('dailyEdit');
+    // Route::get('/daily/accomplishment/edit/{id}', [AccomplishmentController::class,'dailyEdit'])->name('dailyEdit');
     Route::post('/daily/accomplishment/update', [AccomplishmentController::class,'dailyUpdate'])->name('dailyUpdate');
     Route::get('/daily/accomplishment/delete{id}', [AccomplishmentController::class,'dailyDelete'])->name('dailyDelete');
 
@@ -68,7 +71,10 @@ Route::group(['middleware'=>['login_auth']],function(){
     Route::get('/render/events/edit/{id}', [CalendarController::class,'eventEdit'])->name('eventEdit');
     Route::post('/render/events/update', [CalendarController::class,'eventUpdate'])->name('eventUpdate');
     Route::get('/render/events/delete{id}', [CalendarController::class,'eventDelete'])->name('eventDelete');
-    
+
+    Route::get('/work/progress/list', [WorkProgressController::class,'workprogRead'])->name('workprogRead');
+    Route::get('/work/progress/list/ajax', [WorkProgressController::class,'getworkprogRead'])->name('getworkprogRead');
+    Route::post('/work/progress/add', [WorkProgressController::class,'workprogCreate'])->name('workprogCreate');
 
     Route::get('/reports/option', [GenerateReportController::class,'genoptionRead'])->name('genoptionRead');
     Route::get('/reports/generate', [GenerateReportController::class,'generateReports'])->name('generateReports');

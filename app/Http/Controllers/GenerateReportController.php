@@ -13,11 +13,13 @@ use App\Models\Daily;
 
 class GenerateReportController extends Controller
 {
-    public function genoptionRead() {
+    public function genoptionRead() 
+    {
         return view('reports.optionReports');
     }
     
-    public function generateReports(Request $request) {
+    public function generateReports(Request $request) 
+    {
         $userId = Auth::id();
         $start_date = $request->input('start_date');
         $end_date = $request->input('end_date');

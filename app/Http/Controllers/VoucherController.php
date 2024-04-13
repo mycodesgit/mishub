@@ -11,13 +11,15 @@ use App\Models\Voucher;
 
 class VoucherController extends Controller
 {
-    public function voucherRead() {
+    public function voucherRead() 
+    {
         $voucher1 = Voucher::where('status', '=', '1')->get();
         $voucher2 = Voucher::where('status', '=', '0')->get();
         return view('campuswifi.voucher.vlist', compact('voucher1', 'voucher2'));
     }
 
-    public function process(Request $request) {
+    public function process(Request $request) 
+    {
         if ($request->hasFile('csv_file')) {
             $uploadedFile = $request->file('csv_file');
             
@@ -43,7 +45,6 @@ class VoucherController extends Controller
                 }
             }
         }
-
         return redirect()->back()->with('success', 'CSV file uploaded and processed successfully!');
     }
 }

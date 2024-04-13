@@ -11,7 +11,8 @@ use App\Models\User;
 
 class DashboardController extends Controller
 {
-    public function dashboard(){
+    public function dashboard()
+    {
         $stud = Student::count();
         $voucher1 = Voucher::where('status', '=', '1')->count();
         $voucher2 = Voucher::where('status', '=', '0')->count();
@@ -49,7 +50,9 @@ class DashboardController extends Controller
                                             'studentDecemberCount',
                                         ));
     }
-    public function destroy() {
+    
+    public function destroy() 
+    {
         Auth::logout();
 
         return redirect()->route('getLogin')->with('success','You have been Successfully Logged Out');

@@ -35,8 +35,10 @@
     <script src="{{ asset('template/plugins/fullcalendar/fullcalendar.js') }}"></script>
 
     <!-- ChartJS -->
-    <script src="{{ asset('template/plugins/chart.js/Chart.min.js') }}"></script>
-    <script src="{{ asset('js/chart/barChart.js') }}"></script>
+    @if(request()->routeIs('dashboard'))
+        <script src="{{ asset('template/plugins/chart.js/Chart.min.js') }}"></script>
+        <script src="{{ asset('js/chart/barChart.js') }}"></script>
+    @endif
 
     <!-- jquery-validation -->
     <script src="{{ asset('template/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
@@ -44,6 +46,7 @@
 
     <script src="{{ asset('js/validation/optiontaskValidation.js') }}"></script>
     <script src="{{ asset('js/validation/dailyValidation.js') }}"></script>
+    <script src="{{ asset('js/validation/ganttValidation.js') }}"></script>
     <script src="{{ asset('js/validation/genValidation.js') }}"></script>
     <script src="{{ asset('js/validation/userValidation.js') }}"></script>
 
@@ -53,6 +56,18 @@
     <script src="{{ asset('js/basic/userscript.js') }}"></script>
     <script src="{{ asset('js/basic/studentscript.js') }}"></script>
     <script src="{{ asset('js/basic/calenscript.js') }}"></script>
+
+    @if(request()->routeIs('studentRead'))
+        <script src="{{ asset('js/ajax/studentsEnSerialize.js') }}"></script>
+    @endif
+
+    @if(request()->routeIs('dailyRead'))
+        <script src="{{ asset('js/ajax/accomplishmentSerialize.js') }}"></script>
+    @endif
+
+    @if(request()->routeIs('workprogRead'))
+        <script src="{{ asset('js/ajax/ganttSerialize.js') }}"></script>
+    @endif
 
    <script>
         @php
