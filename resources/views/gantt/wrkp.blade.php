@@ -49,54 +49,7 @@
                                         </tr>
                                     </thead>
                                     <tbody id="tbody">
-                                        {{-- @foreach($work as $data)
-                                        <tr id="tr-{{ $data->id }}" class="">
-                                            <td>
-                                                <strong>{{ $data->task }}</strong>
-                                                <br>
-                                                <small>
-                                                    {{ Carbon\Carbon::parse($data->start_date)->format('F d, Y')  }} - {{ Carbon\Carbon::parse($data->end_date)->format('F d, Y')  }}
-                                                </small>
-                                            </td>
-                                            <td>
-                                                @php
-                                                    $userIdsString = $data->user_id;
-                                                    $userIds = explode(',', $userIdsString);
-                                                @endphp
-
-                                                @foreach($userIds as $userId)
-                                                    @php
-                                                        $user = \App\Models\User::find($userId);
-                                                    @endphp
-                                                    @if($user)
-                                                        <span class="badge badge-circle badge-primary">{{ $user->fname }}</span>
-                                                    @endif
-                                                @endforeach
-                                            </td>
-                                            <td class="project_progress">
-                                                <div class="progress progress-md" style="border-radius: 10px;">
-                                                    <div class="progress-bar bg-green" role="progressbar" aria-valuenow="{{ $data->percent_completed }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ $data->percent_completed }}%"></div>
-                                                </div>
-                                                <small>
-                                                    {{ $data->percent_completed }}% Complete
-                                                </small>
-                                            </td>
-                                            <td>
-                                                <span class="badge 
-                                                    @if($data->status == 'Stuck') badge-danger 
-                                                    @elseif($data->status == 'Working on it') badge-warning 
-                                                    @elseif($data->status == 'Complete') badge-success 
-                                                    @endif">
-                                                    {{ $data->status }}
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <a href="" class="btn btn-info btn-xs btn-edit">
-                                                    <i class="fas fa-exclamation-circle"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        @endforeach --}}
+                                        
                                     </tbody>
                                 </table>
                             </div>
