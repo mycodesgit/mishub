@@ -9,7 +9,7 @@ class GanttChart extends Model
 {
     use HasFactory;
 
-    protected $table = 'ganttChart';
+    protected $table = 'ganttchart';
 
     protected $fillable = [
         'task',
