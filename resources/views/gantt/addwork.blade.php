@@ -17,7 +17,7 @@
                     <div class="form-group">
                         <div class="form-row">
                             <div class="col-md-12">
-                                <label class="badge badge-secondary">Task</label>
+                                <label class="badge badge-secondary">Project/Work</label>
                                 <input type="text" name="task" oninput="var words = this.value.split(' '); for(var i = 0; i < words.length; i++){ words[i] = words[i].substr(0,1).toUpperCase() + words[i].substr(1); } this.value = words.join(' ');" class="form-control" placeholder="Enter Task">
                             </div>
                         </div>
@@ -27,7 +27,7 @@
                         <div class="form-row">
                             <div class="col-md-12">
                                 <label class="badge badge-secondary">Date Start:</label>
-                                <input type="date" id="start_date" name="start_date" class="form-control" placeholder="Enter Date Start" onchange="updateEndDateMin()">
+                                <input type="date" id="start_date" name="start_date" class="form-control form-control-sm" placeholder="Enter Date Start" onchange="updateEndDateMin()">
                             </div>
                         </div>
                     </div>
@@ -36,7 +36,7 @@
                         <div class="form-row">
                             <div class="col-md-12">
                                 <label class="badge badge-secondary">Date End:</label>
-                                <input type="date" id="end_date" name="end_date" class="form-control" placeholder="Enter Date End" onchange="updateEndDateMin()">
+                                <input type="date" id="end_date" name="end_date" class="form-control form-control-sm" placeholder="Enter Date End" onchange="updateEndDateMin()">
                             </div>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
                         <div class="form-row">
                             <div class="col-md-12">
                                 <label class="badge badge-secondary">Duration:</label>
-                                <input type="text" id="duration" name="duration" class="form-control" readonly>
+                                <input type="text" id="duration" name="duration" class="form-control form-control-sm" readonly>
                             </div>
                         </div>
                     </div>  
@@ -54,7 +54,7 @@
                         <div class="form-row">
                             <div class="col-md-12">
                                 <label class="badge badge-secondary">Select Teammates:</label>
-                                <select name="user_id[]" class="form-control select2" style="width: 100%;" multiple>
+                                <select name="user_id[]" class="form-control form-control-sm select2" style="width: 100%;" multiple>
                                     @foreach($users as $user)
                                         <option value="{{ $user->id }}" {{ (Auth::id() == $user->id) ? 'selected' : '' }}>
                                             {{ $user->fname }} {{ $user->lname }}

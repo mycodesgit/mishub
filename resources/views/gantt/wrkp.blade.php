@@ -75,20 +75,57 @@
                 <div class="modal-body">
                     <input type="hidden" name="id" id="editWorkpId">
                     <div class="form-group">
-                        <label for="editTask">Task</label>
-                        <input type="text" name="task" id="editTask" class="form-control">
+                        <label for="editTask" class="badge badge-secondary">Project/Work</label>
+                        <input type="text" name="task" id="editTask" class="form-control form-control-sm">
                     </div>
                     <div class="form-group">
-                        <label for="editstartdate">Date Start</label>
-                        <input type="date" name="start_date" id="editstartdate" class="form-control" onchange="editshowEndDateMin()">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <label for="editstartdate" class="badge badge-secondary">Date Start</label>
+                                <input type="date" name="start_date" id="editstartdate" class="form-control form-control-sm" onchange="editshowEndDateMin()">
+                            </div>
+                            <div class="col-md-6">
+                                <label for="editenddate" class="badge badge-secondary">Date End</label>
+                                <input type="date" name="end_date" id="editenddate" class="form-control form-control-sm" onchange="editshowEndDateMin()">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                <label for="editDuration" class="badge badge-secondary">Duration</label>
+                                <input type="text" name="duration" id="editDuration" class="form-control form-control-sm" readonly>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="editStatus" class="badge badge-secondary">Status:</label>
+                                <input type="text" id="editStatus" class="form-control form-control-sm" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group mt-3">
+                        <div class="form-row">
+                            <div class="col-md-12">
+                                <label for="editName" class="badge badge-secondary">Teams</label>
+                                <input type="text" id="editName" class="form-control form-control-sm" readonly>
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <label for="editenddate">Date End</label>
-                        <input type="date" name="end_date" id="editenddate" class="form-control" onchange="editshowEndDateMin()">
+                        <label for="editModule" class="badge badge-secondary">Module/Task:</label>
+                        <textarea class="form-control form-control-sm" id="editModule" rows="4" name="descrip"></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="editDuration">Duration</label>
-                        <input type="text" name="duration" id="editDuration" class="form-control">
+                        <label for="editPercent" class="badge badge-secondary">Percentage:</label>
+                        <input type="number" name="percent_completed" id="editPercent" class="form-control form-control-sm">
+                    </div>
+                    <div class="form-group">
+                        <label for="updateStatus" class="badge badge-secondary">Status:</label>
+                        <select class="form-control form-control-sm" name="status" id="updateStatus">
+                            <option disabled selected>Select</option>
+                            <option value="Stuck">Stuck</option>
+                            <option value="Working on it">Working on it</option>
+                            <option value="Complete">Complete</option>
+                        </select>
                     </div>
                 </div>
                 <div class="modal-footer justify-content-between">
@@ -103,6 +140,8 @@
 <script>
     var workReadRoute = "{{ route('getworkprogRead') }}";
     var workCreateRoute = "{{ route('workprogCreate') }}";
+    var workUpdateRoute = "{{ route('workprogUpdate', ['id' => ':id']) }}";
+    var workDeleteRoute = "{{ route('workprogDelete', ['id' => ':id']) }}";
     var userRoleID = '{{ Auth::user()->id }}';
 </script>
 

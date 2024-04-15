@@ -75,6 +75,8 @@ Route::group(['middleware'=>['login_auth']],function(){
     Route::get('/work/progress/list', [WorkProgressController::class,'workprogRead'])->name('workprogRead');
     Route::get('/work/progress/list/ajax', [WorkProgressController::class,'getworkprogRead'])->name('getworkprogRead');
     Route::post('/work/progress/add', [WorkProgressController::class,'workprogCreate'])->name('workprogCreate');
+    Route::post('/work/progress/update', [WorkProgressController::class,'workprogUpdate'])->name('workprogUpdate');
+    Route::get('/work/progress/delete{id}', [WorkProgressController::class, 'workprogDelete'])->name('workprogDelete');
 
     Route::get('/reports/option', [GenerateReportController::class,'genoptionRead'])->name('genoptionRead');
     Route::get('/reports/generate', [GenerateReportController::class,'generateReports'])->name('generateReports');
