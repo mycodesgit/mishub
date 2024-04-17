@@ -33,9 +33,9 @@ class AccomplishmentController extends Controller
                     ->leftJoin('option_task', 'accomplishment.task', '=', 'option_task.option_name')
                     ->select('accomplishment.*', 'accomplishment.id  as accom_id', 'option_task.*', 'accomplishment.created_at as acrt')
                     ->where('accomplishment.user_id', '=',  $userId)
-                    ->where(DB::raw('MONTH(accomplishment.acrt)'), '=', $currentMonth)
-                    ->where(DB::raw('YEAR(accomplishment.acrt)'), '=', $currentYear)
-                    ->orderBy('accomplishment.acrt', 'ASC')
+                    ->where(DB::raw('MONTH(accomplishment.created_at)'), '=', $currentMonth)
+                    ->where(DB::raw('YEAR(accomplishment.created_at)'), '=', $currentYear)
+                    ->orderBy('accomplishment.created_at', 'ASC')
                     ->get();
 
         return response()->json(['data' => $data]);
