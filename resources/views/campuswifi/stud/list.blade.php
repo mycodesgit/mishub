@@ -83,7 +83,7 @@
             </div>
             <form id="editStudEnForm">
                 <div class="modal-body">
-                    <input type="text" name="id" id="editStudEnId">
+                    <input type="hidden" name="id" id="editStudEnId">
                     <div class="form-group">
                         <label for="editstudID">Student ID No.</label>
                         <input type="text" id="editstudID" oninput="this.value = this.value.toUpperCase()" placeholder="Enter Student ID Number" class="form-control" readonly="">
