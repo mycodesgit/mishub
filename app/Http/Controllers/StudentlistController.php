@@ -37,7 +37,6 @@ class StudentlistController extends Controller
 
     public function studentUpdate(Request $request) 
     {
-        $student = Student::find($request->id);
         
         $request->validate([
             'id' => 'required',

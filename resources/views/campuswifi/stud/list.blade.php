@@ -83,14 +83,14 @@
             </div>
             <form id="editStudEnForm">
                 <div class="modal-body">
-                    <input type="hidden" name="id" id="editStudEnId">
+                    <input type="text" name="id" id="editStudEnId">
                     <div class="form-group">
                         <label for="editstudID">Student ID No.</label>
-                        <input type="text" id="editstudID" name="mname" oninput="this.value = this.value.toUpperCase()" placeholder="Enter Student ID Number" class="form-control" readonly="">
+                        <input type="text" id="editstudID" oninput="this.value = this.value.toUpperCase()" placeholder="Enter Student ID Number" class="form-control" readonly="">
                     </div>
                     <div class="form-group">
                         <label for="editstudName">Name</label>
-                        <input type="text" id="editstudName" name="fullname" oninput="this.value = this.value.toUpperCase()" placeholder="Enter Full Name" class="form-control" readonly="">
+                        <input type="text" id="editstudName" oninput="this.value = this.value.toUpperCase()" placeholder="Enter Full Name" class="form-control" readonly="">
                     </div>
                     <div class="form-group">
                         <label for="passwordInput">Generate New Password</label>

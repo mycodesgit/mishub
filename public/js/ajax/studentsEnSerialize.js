@@ -20,10 +20,10 @@ $(document).ready(function() {
             {data: 'voucher_code'},
             {data: 'course'},
             {
-            data: 'id',
+            data: 's_id',
                 render: function(data, type, row) {
                     if (type === 'display') {
-                        var editLink = '<a href="#" class="btn btn-primary btn-sm btn-studEn" data-id="' + row.id + '" data-studid="' + row.stud_id + '" data-studname="' + row.fullname + '">' +
+                        var editLink = '<a href="#" class="btn btn-primary btn-sm btn-studEn" data-id="' + row.s_id + '" data-studid="' + row.stud_id + '" data-studname="' + row.fullname + '">' +
                             '<i class="fas fa-eye"></i>' +
                             '</a>';
                         return editLink;
