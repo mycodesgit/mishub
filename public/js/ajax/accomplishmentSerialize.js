@@ -37,6 +37,10 @@ $(document).ready(function() {
         "ajax": {
             "url": dailyReadRoute,
             "type": "GET",
+            "data": function(d) {
+                d.year = $('#yearSelect').val();
+                d.month = $('#monthSelect').val();
+            }
         },
         info: true,
         responsive: false,
@@ -83,6 +87,10 @@ $(document).ready(function() {
         }
     });
     $(document).on('dailyAdded', function() {
+        dataTable.ajax.reload();
+    });
+    $('#filterForm').submit(function(e) {
+        e.preventDefault();
         dataTable.ajax.reload();
     });
 });
