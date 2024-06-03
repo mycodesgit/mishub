@@ -33,8 +33,6 @@ class AccomplishmentController extends Controller
                     ->leftJoin('option_task', 'accomplishment.task', '=', 'option_task.option_name')
                     ->select('accomplishment.*', 'accomplishment.id  as accom_id', 'option_task.*', 'accomplishment.created_at as acrt')
                     ->where('accomplishment.user_id', '=',  $userId)
-                    ->whereYear('accomplishment.created_at', $currentYear)
-                    ->whereMonth('accomplishment.created_at', $currentMonth)
                     ->orderBy('accomplishment.created_at', 'ASC')
                     ->get();
 
