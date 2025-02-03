@@ -211,6 +211,10 @@
                         <label for="editAccom">No. of Accomodation</label>
                         <textarea class="form-control" rows="4" id="editAccom" name="no_accom"></textarea>
                     </div>
+                    <div class="form-group">
+                        <label for="editCreated">Change Date</label>
+                        <textarea class="form-control" rows="4" id="editCreated" name="no_accom"></textarea>
+                    </div>
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

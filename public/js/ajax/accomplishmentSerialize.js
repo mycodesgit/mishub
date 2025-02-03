@@ -67,7 +67,7 @@ $(document).ready(function() {
                         var dropdown = '<div class="d-inline-block">' +
                             '<a class="btn btn-primary btn-sm dropdown-toggle dropdown-icon" data-toggle="dropdown"></a>' +
                             '<div class="dropdown-menu">' +
-                            '<a href="#" class="dropdown-item btn-dailyAc" data-id="' + row.accom_id + '" data-task="' + row.option_name + '" data-accom="' + row.no_accom + '">' +
+                            '<a href="#" class="dropdown-item btn-dailyAc" data-id="' + row.accom_id + '" data-task="' + row.option_name + '" data-accom="' + row.no_accom + '" data-created="' + row.created_at + '">' +
                             '<i class="fas fa-pen"></i> Edit' +
                             '</a>' +
                             '<button type="button" value="' + data + '" class="dropdown-item dailyac-delete">' +
@@ -99,10 +99,12 @@ $(document).on('click', '.btn-dailyAc', function() {
     var id = $(this).data('id');
     var task = $(this).data('task');
     var accom = $(this).data('accom');
+    var created = $(this).data('created');
     
     $('#editDailyId').val(id);
     $('#editTask').val(task);
     $('#editAccom').val(accom);
+    $('#editCreated').val(created);
     $('#editDailyModal').modal('show');
 });
 
