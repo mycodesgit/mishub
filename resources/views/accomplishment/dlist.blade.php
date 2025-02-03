@@ -213,7 +213,7 @@
                     </div>
                     <div class="form-group">
                         <label for="editCreated">Change Date</label>
-                        <input type="date"class="form-control" rows="4" id="editCreated" name="no_accom">
+                        <input type="date"class="form-control" rows="4" id="editCreated" name="created_at">
                     </div>
                 </div>
                 <div class="modal-footer justify-content-between">
