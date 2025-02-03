@@ -86,7 +86,7 @@
 <body>
 	<div>
 	    <center>
-	        <img src="{{ asset('template/img/headerLogoNew.png') }}" width="95%" height="14%" style="margin-top: -8px;">
+	        <img src="{{ asset('template/img/headerLogoNew1.png') }}" width="95%" height="14%" style="margin-top: -8px;">
 	    </center>
 	</div>
 
@@ -150,7 +150,7 @@
 	</div>
 
 	<div class="supervisor_person">
-	    <p>RYAN B. ESCORIAL, DIT</p>
+	    <p>MICHAEL A. BALIVIA</p>
 	</div>
 
 	<div class="supervisor_position">
@@ -158,7 +158,7 @@
 	</div>
 
 	<div class="footer-logo-container">
-	    <img src="{{ asset('template/img/footerLogo.png') }}" class="footer-logo" width="100%">
+	    <img src="{{ asset('template/img/footerLogoNew.png') }}" class="footer-logo" width="100%">
 	</div>
 
 </body>
