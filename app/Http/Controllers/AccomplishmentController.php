@@ -92,6 +92,7 @@ class AccomplishmentController extends Controller
             $daily->update([
                 'task' => $request->input('task'),
                 'no_accom' => $request->input('no_accom'),
+                'created_at' => $request->input('created_at'),
 
             ]);
             return response()->json(['success' => true, 'message' => 'Update successfully'], 200);
