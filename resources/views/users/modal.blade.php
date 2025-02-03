@@ -78,6 +78,9 @@
                                     <option value=""> --- Select ---</option>
                                     <option value="Administrator">Administrator</option>
                                     <option value="MIS Officer">MIS Officer</option>
+                                    <option value="Network Ad">Network Ad</option>
+                                    <option value="Computer Technician">Computer Technician</option>
+                                    <option value="Document Controller">Document Controller</option>
                                     <option value="Staff">Staff</option>
                                 </select>
                             </div>

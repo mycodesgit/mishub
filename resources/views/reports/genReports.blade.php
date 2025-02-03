@@ -86,7 +86,7 @@
 <body>
 	<div>
 	    <center>
-	        <img src="{{ asset('template/img/headerLogo.png') }}" width="95%" height="18%" style="margin-top: -8px;">
+	        <img src="{{ asset('template/img/headerLogoNew.png') }}" width="95%" height="18%" style="margin-top: -8px;">
 	    </center>
 	</div>
 

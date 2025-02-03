@@ -32,7 +32,7 @@ $(document).ready(function() {
         },
         events: function(start, end, timezone, callback) {
             $.ajax({
-                url: EventRoute,
+                //url: EventRoute,
                 method: 'GET',
                 dataType: 'json',
                 success: function(events) {
