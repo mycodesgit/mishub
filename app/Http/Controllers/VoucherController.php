@@ -13,8 +13,8 @@ class VoucherController extends Controller
 {
     public function voucherRead() 
     {
-        $voucher1 = Voucher::where('status', '=', '1')->get();
-        $voucher2 = Voucher::where('status', '=', '0')->get();
+        $voucher1 = Voucher::where('status', '=', '1')->where('semester', '=', '1')->where('schlyear', '=', '2025-2026')->get();
+        $voucher2 = Voucher::where('status', '=', '0')->where('semester', '=', '1')->where('schlyear', '=', '2025-2026')->get();
         return view('campuswifi.voucher.vlist', compact('voucher1', 'voucher2'));
     }
 
