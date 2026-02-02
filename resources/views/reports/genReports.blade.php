@@ -150,7 +150,7 @@
 	</div>
 
 	<div class="supervisor_person">
-	    <p>MICHAEL A. BALIVIA</p>
+	    <p>ENGR. JEVY F. YEE</p>
 	</div>
 
 	<div class="supervisor_position">
